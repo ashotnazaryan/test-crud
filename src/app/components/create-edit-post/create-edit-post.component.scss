@@ -1,0 +1,20 @@
+@import 'src/app/styles/mixins';
+
+.input {
+  border: 1px solid var(--grey);
+  border-radius: var(--border-radius);
+  font-size: 16px;
+
+  &--title {
+    width: 50%;
+  }
+
+  &--body {
+    width: 100%;
+  }
+}
+
+.button {
+  @include button(var(--primary), var(--white));
+  width: 200px;
+}

@@ -1,0 +1,21 @@
+<div class="flex flex-col">
+  <form [formGroup]="searchForm">
+    <label class="mr-1">Search by title</label>
+    <input formControlName="searchField" class="search-input p-2" />
+  </form>
+  <button class="button my-4" (click)="createEditPost()">Create new post</button>
+  <ng-container *ngIf="!(loading$ | async); else loading">
+    <div class="flex items-center p-1 cursor-pointer" *ngFor="let post of posts$ | async" (click)="createEditPost(post)">
+      <div class="mr-1">
+        {{post.id}}:
+      </div>
+      <div class="flex-auto mr-1">
+        {{post.title}}
+      </div>
+      <button class="button button--delete mx-2" (click)="deletePost(post)">Delete</button>
+    </div>
+  </ng-container>
+  <ng-template #loading>
+    Loading...
+  </ng-template>
+</div>
