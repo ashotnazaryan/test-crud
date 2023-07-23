@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Store } from '@ngrx/store';
@@ -12,7 +12,7 @@ import { selectPost } from '../../store/posts.selectors';
   templateUrl: './create-edit-post.component.html',
   styleUrls: ['./create-edit-post.component.scss']
 })
-export class CreateEditPostComponent {
+export class CreateEditPostComponent implements OnInit, OnDestroy {
   private unsubscribe$ = new Subject();
   id!: string;
   postForm!: FormGroup;

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Store } from '@ngrx/store';
@@ -12,7 +12,7 @@ import { deletePost, getPosts } from '../../store/posts.actions';
   templateUrl: './posts.component.html',
   styleUrls: ['./posts.component.scss']
 })
-export class PostsComponent {
+export class PostsComponent implements OnInit, OnDestroy {
   private unsubscribe$ = new Subject();
   searchForm!: FormGroup;
   posts$ = this.store.select(selectPosts);
